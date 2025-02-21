@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { bulkInsertService } from "../services/transaction-insert.service";
+import { AppError } from "../../../utils/CustomError";
 
 export const bulkInsertTransactions = async (
   req: Request,
@@ -9,7 +10,12 @@ export const bulkInsertTransactions = async (
     const saveData = await bulkInsertService(req.body);
     return res.status(201).json(saveData);
   } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: "Erro ao inserir transações." });
+    if (error instanceof AppError) {
+      return res.status(error.statusCode).json({ error: error.message });
+    }
+
+    return res
+      .status(500)
+      .json({ error: "Erro interno ao inserir transações." });
   }
 };

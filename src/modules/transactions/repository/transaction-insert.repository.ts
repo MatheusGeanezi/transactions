@@ -2,7 +2,13 @@ import { Transaction } from "../models/transaction.model";
 
 export const bulkInsertRepository = async (
   transactions: any[]
-): Promise<number> => {
-  const insertedTransactions = await Transaction.insertMany(transactions);
-  return insertedTransactions.length;
+): Promise<any> => {
+  const operations = transactions.map((transaction) => ({
+    insertOne: {
+      document: transaction,
+    },
+  }));
+
+  const result = await Transaction.bulkWrite(operations);
+  return result.insertedCount;
 };
