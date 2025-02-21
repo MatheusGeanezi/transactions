@@ -27,6 +27,7 @@ npm install
 # ou
 yarn install
 
+Criar arquivo .env
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/applause
 # ou
