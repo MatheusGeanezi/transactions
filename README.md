@@ -34,3 +34,6 @@ env.example
 
 documentação http://localhost:3000/api-docs
 
+Rodar o projeto
+npm run dev
+
