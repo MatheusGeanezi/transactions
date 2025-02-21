@@ -24,13 +24,13 @@ git clone https://github.com/MatheusGeanezi/transactions.git
 cd transactions
 
 npm install
-# ou
+ou
 yarn install
 
 criar arquivo .env
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/applause
-# ou
+ou
 env.example
 
 documentação http://localhost:3000/api-docs
