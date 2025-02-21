@@ -30,8 +30,7 @@ yarn install
 criar arquivo .env
 PORT=3000
 MONGO_URI=mongodb://localhost:27017/applause
-ou
-env.example
+ou renomear env.example para .env
 
 documentação http://localhost:3000/api-docs
 
